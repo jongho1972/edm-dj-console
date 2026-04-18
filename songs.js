@@ -21,4 +21,14 @@ window.SONGS = [
     stems: ['kick', 'clap', 'roll', 'chat', 'ohat', 'riser', 'impact', 'vox', 'rcrash', 'bass', 'lead', 'pad'],
     status: 'ready',
   },
+  {
+    id: '003',
+    title: '003 · PSYTRANCE',
+    subtitle: 'Full-On rolling 16th bass, deep pump, Em-C-G-D breakdown',
+    bpm: 140,
+    key: 'E minor',
+    duration: 150.86,
+    stems: ['kick', 'clap', 'roll', 'chat', 'ohat', 'riser', 'impact', 'vox', 'rcrash', 'bass', 'lead', 'pad'],
+    status: 'ready',
+  },
 ];
