@@ -127,6 +127,7 @@ h2 {
 }
 
 #start-btn {
+  display: inline-block;
   background: #00ffd5;
   color: #000;
   border: none;
@@ -135,15 +136,17 @@ h2 {
   font-weight: 700;
   letter-spacing: 3px;
   border-radius: 8px;
-  cursor: pointer;
+  cursor: wait;
   font-family: inherit;
-  transition: all 0.2s;
   box-shadow: 0 0 30px rgba(0,255,213,0.4);
   margin-right: 8px;
+  animation: loading-pulse 1.2s ease-in-out infinite;
 }
 
-#start-btn:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,255,213,0.6); }
-#start-btn:disabled { background: #444; cursor: wait; box-shadow: none; }
+@keyframes loading-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 30px rgba(0,255,213,0.4); }
+  50%      { opacity: 0.55; box-shadow: 0 0 20px rgba(0,255,213,0.2); }
+}
 
 button.secondary {
   background: transparent;

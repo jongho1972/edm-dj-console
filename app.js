@@ -54,6 +54,7 @@ function renderSongList() {
     card.addEventListener('click', () => {
       if (song.status === 'ready') {
         selectSong(song);
+        init();  // 카드 클릭 자체가 user gesture이므로 여기서 바로 Tone.start() 호출
       } else {
         alert(`"${song.title}"의 스템이 아직 렌더링되지 않았습니다.`);
       }
@@ -99,8 +100,7 @@ function cleanupAudio() {
 
 async function init() {
   const startBtn = document.getElementById('start-btn');
-  startBtn.disabled = true;
-  startBtn.textContent = 'LOADING...';
+  startBtn.textContent = '🎧 LOADING...';
 
   await Tone.start();
   cleanupAudio();
@@ -144,7 +144,6 @@ async function init() {
     await Promise.all(loadPromises);
   } catch (e) {
     console.error(e);
-    startBtn.disabled = false;
     startBtn.textContent = '❌ 로드 실패';
     alert(`stems/${currentSong.id}/ 폴더 mp3 로드 실패`);
     return;
@@ -178,8 +177,7 @@ async function init() {
   startSpectrumLoop();
   updateTimeDisplay();
 
-  startBtn.disabled = false;
-  startBtn.textContent = '🎧 LOAD & START';
+  startBtn.textContent = '🎧 LOADING...';
 }
 
 // ---------- Channels ----------
@@ -482,7 +480,6 @@ function stopRecording(save) {
 
 // ---------- Boot ----------
 
-document.getElementById('start-btn').addEventListener('click', init);
 renderSongList();
 
 // 배포 일시 표시 (Netlify 빌드 시 deploy-time.txt 생성)
