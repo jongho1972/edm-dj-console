@@ -9,7 +9,7 @@ body {
 }
 
 .console {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   background: #14141f;
   border: 1px solid #2a2a3e;
@@ -95,12 +95,7 @@ h2 {
 
 .song-card.pending .song-title { color: #ffdd00; }
 
-.song-status {
-  font-size: 10px;
-  color: #8a8aa0;
-  letter-spacing: 1px;
-}
-
+.song-status { font-size: 10px; color: #8a8aa0; letter-spacing: 1px; }
 .song-subtitle { color: #c0c0d0; font-size: 13px; }
 
 .song-stats {
@@ -118,16 +113,10 @@ h2 {
 
 .song-stems { font-size: 10px; color: #6a6a80; letter-spacing: 1px; }
 
-/* ---- Start / loading ---- */
+/* ---- Start ---- */
 
-#start-section {
-  text-align: center;
-  padding: 40px 0;
-}
-
-.selected-song {
-  margin-bottom: 28px;
-}
+#start-section { text-align: center; padding: 40px 0; }
+.selected-song { margin-bottom: 28px; }
 
 #current-song-title {
   font-size: 20px;
@@ -171,6 +160,22 @@ button.secondary:hover { color: #e0e0e8; border-color: #8a8aa0; }
 
 .hint { margin-top: 16px; color: #6a6a80; font-size: 12px; }
 
+/* ---- Visualizer ---- */
+
+#visualizer {
+  background: #0a0a14;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #2a2a3e;
+}
+
+#spectrum {
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
 /* ---- Transport ---- */
 
 .track-header {
@@ -180,13 +185,26 @@ button.secondary:hover { color: #e0e0e8; border-color: #8a8aa0; }
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #2a2a3e;
+  gap: 12px;
 }
 #playing-title {
   color: #00ffd5;
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 14px;
+  flex: 1;
 }
+.autoplay-label {
+  color: #8a8aa0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.autoplay-label input { accent-color: #00ffd5; cursor: pointer; }
+
 button.small {
   background: transparent;
   color: #8a8aa0;
@@ -204,7 +222,7 @@ button.small:hover { color: #e0e0e8; border-color: #8a8aa0; }
   background: #1a1a28;
   padding: 16px;
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .transport-row {
@@ -212,23 +230,38 @@ button.small:hover { color: #e0e0e8; border-color: #8a8aa0; }
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 button.xl {
   background: #2a2a3e;
   color: #e0e0e8;
   border: 1px solid #3a3a50;
-  padding: 12px 20px;
-  font-size: 20px;
+  padding: 12px 18px;
+  font-size: 18px;
   border-radius: 6px;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.15s;
-  min-width: 56px;
+  min-width: 52px;
 }
 
 button.xl:hover { background: #3a3a50; }
 button.xl.active { background: #00ffd5; color: #000; border-color: #00ffd5; }
+
+button.xl.rec { font-size: 12px; color: #ff3355; border-color: #ff3355; letter-spacing: 1px; }
+button.xl.rec:hover { background: rgba(255,51,85,0.2); }
+button.xl.rec.active { background: #ff3355; color: #fff; border-color: #ff3355; animation: rec-pulse 1.2s infinite; }
+@keyframes rec-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,51,85,0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(255,51,85,0); }
+}
+.rec-time {
+  color: #ff3355;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
 #time {
   margin-left: auto;
@@ -243,38 +276,70 @@ button.xl.active { background: #00ffd5; color: #000; border-color: #00ffd5; }
   accent-color: #00ffd5;
 }
 
+/* ---- Crossfader ---- */
+
+#crossfader {
+  background: #1a1a28;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.xfader-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.xfader-label.drums { color: #ff9944; }
+.xfader-label.mel { color: #00ccff; }
+
+#xfader {
+  flex: 1;
+  accent-color: #00ffd5;
+  cursor: pointer;
+}
+
+#xfader-center { white-space: nowrap; }
+
 /* ---- Channels ---- */
 
 #channels {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   background: #1a1a28;
-  padding: 20px;
+  padding: 18px;
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .channel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 12px 8px;
+  gap: 7px;
+  padding: 10px 6px;
   background: #222234;
   border-radius: 6px;
   border: 1px solid #2a2a3e;
+  border-top: 3px solid #3a3a50;
 }
+.channel.drum    { border-top-color: #ff9944; }
+.channel.melodic { border-top-color: #00ccff; }
 
 .channel .label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #00ffd5;
 }
 
 .vu {
-  width: 8px;
-  height: 70px;
+  width: 6px;
+  height: 55px;
   background: #0a0a14;
   border-radius: 2px;
   position: relative;
@@ -290,29 +355,21 @@ button.xl.active { background: #00ffd5; color: #000; border-color: #00ffd5; }
   transition: height 0.05s linear;
 }
 
-.vol {
-  width: 100%;
-  accent-color: #00ffd5;
-  cursor: pointer;
-}
-
-.vol-val {
-  font-size: 11px;
-  color: #8a8aa0;
-}
+.vol { width: 100%; accent-color: #00ffd5; cursor: pointer; }
+.vol-val { font-size: 10px; color: #8a8aa0; }
 
 .channel button {
   width: 100%;
-  padding: 6px;
+  padding: 5px;
   background: #2a2a3e;
   color: #8a8aa0;
   border: 1px solid #3a3a50;
   border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   transition: all 0.15s;
 }
 
@@ -324,9 +381,9 @@ button.xl.active { background: #00ffd5; color: #000; border-color: #00ffd5; }
 
 #master {
   background: #1a1a28;
-  padding: 20px;
+  padding: 18px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .knob-row {
@@ -368,9 +425,14 @@ footer {
 
 footer a { color: #00ffd5; text-decoration: none; }
 
+@media (max-width: 900px) {
+  #channels { grid-template-columns: repeat(6, 1fr) !important; }
+}
 @media (max-width: 700px) {
-  #channels { grid-template-columns: repeat(3, 1fr) !important; }
+  #channels { grid-template-columns: repeat(4, 1fr) !important; }
   .knob-row { grid-template-columns: repeat(2, 1fr); }
   h1 { font-size: 20px; letter-spacing: 2px; }
   #song-list { grid-template-columns: 1fr; }
+  .transport-row { justify-content: center; }
+  #time { margin-left: 0; width: 100%; text-align: center; }
 }

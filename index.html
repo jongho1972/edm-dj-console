@@ -13,16 +13,16 @@
 
   <header>
     <h1>🎛️ EDM DJ CONSOLE</h1>
-    <div class="meta">Python으로 만든 곡들 · 스템 6트랙 개별 제어</div>
+    <div class="meta">Python으로 만든 곡들 · 스템 개별 제어 + 녹음 + 크로스페이더</div>
   </header>
 
-  <!-- 곡 선택 화면 -->
+  <!-- 곡 선택 -->
   <section id="song-selector">
     <h2>곡 선택</h2>
     <div id="song-list"></div>
   </section>
 
-  <!-- 로딩 화면 -->
+  <!-- 로딩 -->
   <section id="start-section" class="hidden">
     <div class="selected-song">
       <div id="current-song-title">—</div>
@@ -33,10 +33,16 @@
     <div class="hint">브라우저 정책상 첫 재생은 수동 클릭 필요</div>
   </section>
 
-  <!-- DJ 콘솔 -->
+  <!-- 스펙트럼 -->
+  <section id="visualizer" class="hidden">
+    <canvas id="spectrum" width="1100" height="90"></canvas>
+  </section>
+
+  <!-- 트랜스포트 -->
   <section id="transport" class="hidden">
     <div class="track-header">
       <span id="playing-title">—</span>
+      <label class="autoplay-label"><input type="checkbox" id="autoplay"> 다음곡 자동</label>
       <button id="change-song-btn" class="small">↩ 곡 변경</button>
     </div>
     <div class="transport-row">
@@ -44,13 +50,25 @@
       <button id="stop-btn" class="xl">■</button>
       <button id="cue-btn" class="xl">⏏</button>
       <button id="loop-btn" class="xl">↻</button>
+      <button id="record-btn" class="xl rec">● REC</button>
+      <span id="rec-time" class="rec-time hidden">0:00</span>
       <span id="time">00:00 / 00:00</span>
     </div>
     <input type="range" id="seek" min="0" max="1000" value="0" step="1">
   </section>
 
+  <!-- 크로스페이더 -->
+  <section id="crossfader" class="hidden">
+    <div class="xfader-label drums">◀ DRUMS</div>
+    <input type="range" id="xfader" min="0" max="100" value="50">
+    <div class="xfader-label mel">MELODIC ▶</div>
+    <button id="xfader-center" class="small">⊕ 중앙</button>
+  </section>
+
+  <!-- 채널 -->
   <section id="channels" class="hidden"></section>
 
+  <!-- 마스터 -->
   <section id="master" class="hidden">
     <h2>MASTER</h2>
     <div class="knob-row">
