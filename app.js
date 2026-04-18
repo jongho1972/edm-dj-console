@@ -484,3 +484,13 @@ function stopRecording(save) {
 
 document.getElementById('start-btn').addEventListener('click', init);
 renderSongList();
+
+// 배포 일시 표시 (Netlify 빌드 시 deploy-time.txt 생성)
+fetch('deploy-time.txt', { cache: 'no-store' })
+  .then(r => r.ok ? r.text() : null)
+  .then(t => {
+    if (!t) return;
+    const el = document.getElementById('deploy-time');
+    if (el) el.textContent = '최종 배포: ' + t.trim();
+  })
+  .catch(() => {});

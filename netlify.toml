@@ -1,4 +1,5 @@
 [build]
+  command = "TZ=Asia/Seoul date '+%Y년 %m월 %d일 %H:%M' > deploy-time.txt"
   publish = "."
 
 [[headers]]

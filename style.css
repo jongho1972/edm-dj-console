@@ -423,7 +423,9 @@ footer {
   border-top: 1px solid #2a2a3e;
 }
 
+footer p { margin: 4px 0; }
 footer a { color: #00ffd5; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
 @media (max-width: 900px) {
   #channels { grid-template-columns: repeat(6, 1fr) !important; }
