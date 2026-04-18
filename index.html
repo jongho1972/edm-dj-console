@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDM · DJ Console</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<script src="songs.js"></script>
+</head>
+<body>
+<div class="console">
+
+  <header>
+    <h1>🎛️ EDM DJ CONSOLE</h1>
+    <div class="meta">Python으로 만든 곡들 · 스템 6트랙 개별 제어</div>
+  </header>
+
+  <!-- 곡 선택 화면 -->
+  <section id="song-selector">
+    <h2>곡 선택</h2>
+    <div id="song-list"></div>
+  </section>
+
+  <!-- 로딩 화면 -->
+  <section id="start-section" class="hidden">
+    <div class="selected-song">
+      <div id="current-song-title">—</div>
+      <div id="current-song-meta" class="meta"></div>
+    </div>
+    <button id="start-btn">🎧 LOAD &amp; START</button>
+    <button id="back-btn" class="secondary">← 다른 곡 선택</button>
+    <div class="hint">브라우저 정책상 첫 재생은 수동 클릭 필요</div>
+  </section>
+
+  <!-- DJ 콘솔 -->
+  <section id="transport" class="hidden">
+    <div class="track-header">
+      <span id="playing-title">—</span>
+      <button id="change-song-btn" class="small">↩ 곡 변경</button>
+    </div>
+    <div class="transport-row">
+      <button id="play-btn" class="xl">▶</button>
+      <button id="stop-btn" class="xl">■</button>
+      <button id="cue-btn" class="xl">⏏</button>
+      <button id="loop-btn" class="xl">↻</button>
+      <span id="time">00:00 / 00:00</span>
+    </div>
+    <input type="range" id="seek" min="0" max="1000" value="0" step="1">
+  </section>
+
+  <section id="channels" class="hidden"></section>
+
+  <section id="master" class="hidden">
+    <h2>MASTER</h2>
+    <div class="knob-row">
+      <div class="knob-group">
+        <label>LPF (저역통과)</label>
+        <input type="range" id="lpf" min="200" max="20000" value="20000" step="50">
+        <span id="lpf-val">20000 Hz</span>
+      </div>
+      <div class="knob-group">
+        <label>HPF (고역통과)</label>
+        <input type="range" id="hpf" min="20" max="2000" value="20" step="10">
+        <span id="hpf-val">20 Hz</span>
+      </div>
+      <div class="knob-group">
+        <label>TEMPO</label>
+        <input type="range" id="tempo" min="80" max="160" value="126" step="1">
+        <span id="tempo-val">126 BPM</span>
+      </div>
+      <div class="knob-group">
+        <label>MASTER VOL</label>
+        <input type="range" id="master-vol" min="0" max="120" value="100" step="1">
+        <span id="master-vol-val">100%</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Built with <a href="https://tonejs.github.io/" target="_blank">Tone.js</a> · Python + Reaper .rpp 자동화</div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
