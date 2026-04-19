@@ -2,7 +2,7 @@
 const STEM_EXT = 'mp3';
 
 // 드럼 계열 stem 이름 집합 (크로스페이더 분류용)
-const DRUM_STEMS = new Set(['kick', 'clap', 'roll', 'chat', 'ohat', 'riser', 'impact', 'rcrash']);
+const DRUM_STEMS = new Set(['kick', 'kick_tail', 'clap', 'roll', 'chat', 'ohat', 'perc', 'metal_perc', 'riser', 'impact', 'noise', 'rcrash']);
 
 let currentSong = null;
 let currentSongIndex = -1;
