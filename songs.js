@@ -2,6 +2,16 @@
 // stems/<id>/ 폴더에 소문자 mp3를 넣으면 됨. (최신 곡이 화면 왼쪽에 표시됨)
 window.SONGS = [
   {
+    id: '005',
+    title: 'BIG ROOM',
+    subtitle: 'Festival anthem 2-step saw stab (Hardwell-style), F#m-D-A-E breakdown + VOX chop, 강남 클럽 tune',
+    bpm: 128,
+    key: 'F# minor',
+    duration: 150.00,
+    stems: ['kick', 'clap', 'roll', 'chat', 'ohat', 'riser', 'impact', 'noise', 'rcrash', 'vox', 'bass', 'saw_lead', 'pluck_lead', 'piano', 'pad'],
+    status: 'ready',
+  },
+  {
     id: '004',
     title: 'HARD TECHNO',
     subtitle: 'Sara Landry-style kick+rumble+F1 sub anchor, acid pentatonic, hoover lead, Fm-Eb-Db-Cm',
