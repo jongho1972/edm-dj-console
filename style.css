@@ -289,6 +289,7 @@ button.xl.rec.active { background: #ff3355; color: #fff; border-color: #ff3355; 
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .xfader-label {
