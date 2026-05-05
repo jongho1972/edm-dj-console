@@ -4,10 +4,10 @@ window.SONGS = [
   {
     id: '005',
     title: 'BIG ROOM',
-    subtitle: 'Festival anthem 2-step saw stab (Hardwell-style), F#m-D-A-E breakdown + VOX chop, 강남 클럽 tune',
+    subtitle: 'Festival anthem 2-step saw stab (Hardwell-style), F#m-D-A-E breakdown + Hypha Piano Uno, 강남 클럽 tune',
     bpm: 128,
     key: 'F# minor',
-    duration: 150.00,
+    duration: 165.03,
     stems: ['kick', 'clap', 'roll', 'chat', 'ohat', 'riser', 'impact', 'noise', 'rcrash', 'vox', 'bass', 'saw_lead', 'pluck_lead', 'piano', 'pad'],
     status: 'ready',
   },
